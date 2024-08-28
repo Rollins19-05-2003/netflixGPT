@@ -1,16 +1,15 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
-import { isValidCredentials } from '../utils/validate';
-import React, { useRef, useState } from 'react'
 import Header from "./Header"
 import {auth} from "../utils/firebase"
-import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
+import { USERICON } from '../utils/constants';
+import React, { useRef, useState } from 'react'
+import { isValidCredentials } from '../utils/validate';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
 
 const Login = () => {
-  const [isSignIn, setIsSignIn] = useState(true);
   const [errorMessage, setErrorMessage] = useState(true);
-  const navigate = useNavigate();
+  const [isSignIn, setIsSignIn] = useState(true);
   const dispatch = useDispatch();
   const name = useRef(null);
   const email = useRef(null);
@@ -34,11 +33,10 @@ const Login = () => {
         // Signed up 
         const user = userCredential.user;
         updateProfile(auth.currentUser, {
-          displayName: name.current.value, photoURL: "https://avatars.githubusercontent.com/u/117891341?s=400&u=cb31fbd81bece9bcf1aabd39db9ce25b606f0ed8&v=4"
+          displayName: name.current.value, photoURL: {USERICON}
         }).then(() => {
           const {uid, email, displayName, photoURL} = auth.currentUser;
           dispatch(addUser({uid:uid, email:email, displayName:displayName, photoURL : photoURL}));
-          navigate("/browse");
         }).catch((error) => {
           setErrorMessage(error.message);
         });
@@ -54,7 +52,7 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in 
           const user = userCredential.user;
-          navigate("/browse");
+          console.log("success");
         })
         .catch((error) => {
           const errorCode = error.code;
