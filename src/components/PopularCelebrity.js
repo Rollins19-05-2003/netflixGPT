@@ -2,7 +2,6 @@ import React from 'react'
 import CelebrityCard from './CelebrityCard'
 
 const PopularCelebrity = ({title, popularCelebrity}) => {
-    console.log(popularCelebrity);
     return (
         <div className="px-6">
             <h1 className="text-lg md:text-3xl text-white py-4">{title}</h1>

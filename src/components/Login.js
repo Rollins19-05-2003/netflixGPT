@@ -2,7 +2,7 @@ import Header from "./Header"
 import {auth} from "../utils/firebase"
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
-import { USERICON } from '../utils/constants';
+import { BG_URL, USERICON } from '../utils/constants';
 import React, { useRef, useState } from 'react'
 import { isValidCredentials } from '../utils/validate';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
@@ -67,7 +67,7 @@ const Login = () => {
         <div className='bg-black'>
           <Header/>
           <div className='bg-gradient-to-b from-black absolute'>
-            <img src='https://assets.nflxext.com/ffe/siteui/vlv3/36a4db5b-dec2-458a-a1c0-662fa60e7473/1115a02b-3062-4dcc-aae0-94028a0dcdff/IN-en-20240820-TRIFECTA-perspective_WEB_eeff8a6e-0384-4791-a703-31368aeac39f_large.jpg' alt='bg' 
+            <img src={BG_URL} alt='bg' 
             ></img>
           </div>
           <form className='absolute w-4/12 top-28 left-1/3  bg-black p-5 bg-opacity-85' onSubmit={(e)=> e.preventDefault()}  >

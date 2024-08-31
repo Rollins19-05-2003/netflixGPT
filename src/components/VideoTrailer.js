@@ -11,7 +11,7 @@ const VideoTrailer = ({movieId}) => {
         className="w-screen aspect-video"
         src={YT_URL + trailerVideo?.key + "?autoplay=1&mute=1"} 
         title="YouTube video player" allow="accelerometer; autoplay=1; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-        referrerpolicy="strict-origin-when-cross-origin">
+        referrerPolicy="strict-origin-when-cross-origin">
         </iframe>
     </div>
   )

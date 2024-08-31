@@ -15,6 +15,5 @@ const usePopularMovies = () =>{
         getPopularMovies();
     },[]);
 }
-
 export default usePopularMovies;
 
