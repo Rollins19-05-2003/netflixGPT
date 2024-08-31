@@ -8,7 +8,6 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import { changeLanguage } from "../utils/configSlice";
 import { toggleGptSearchView } from "../utils/gptSlice";
 import { SUPPORTED_LANGUAGES } from "../utils/constants";
-import lang from "../utils/languageConstants";
 
 const Header = () => {
   const navigate = useNavigate();
